@@ -8,5 +8,5 @@ from .views import (
 
 urlpatterns = [
     path('', CurrencyExchangeView.as_view()),
-    path('currencies/', CurrenciesListView.as_view()),
+    path('currencies/', CurrenciesListView.as_view(), name='currency-list'),
 ]

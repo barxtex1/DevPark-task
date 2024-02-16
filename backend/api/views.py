@@ -25,7 +25,7 @@ class CurrenciesListView(ListAPIView):
 class CurrencyExchangeView(APIView):
 
     def get(self, request, *args, **kwargs):
-        serializer = CurrencyExchangeSerializer(data=request.query_params)
+        serializer = CurrencyExchangeSerializer(data=request.query_params, context={'request': request})
         if serializer.is_valid(raise_exception=True):
             
             return Response({"status": True})
