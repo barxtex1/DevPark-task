@@ -10,8 +10,7 @@ from .serializers import (
     CurrencyExchangeSerializer,
     CurrenciesSerializer
 )
-from cfehome.settings import API_KEY
-
+from .exchange import make_exchange
 
 
 class CurrenciesListView(ListAPIView):
@@ -26,6 +25,8 @@ class CurrencyExchangeView(APIView):
 
     def get(self, request, *args, **kwargs):
         serializer = CurrencyExchangeSerializer(data=request.query_params, context={'request': request})
+        
         if serializer.is_valid(raise_exception=True):
-            
-            return Response({"status": True})
+
+            response = make_exchange(serializer.validated_data)
+            return Response(response)
