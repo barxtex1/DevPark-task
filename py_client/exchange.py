@@ -1,12 +1,12 @@
 import requests
 
 
-url = 'http://localhost:8000/api'
+url = 'http://localhost:8000/api/exchange'
 data = {
     "input_currency": 'pln',
-    "output_currencies": 'eur,usd',
-    "amount": 123.22,
-    "date": '2023-11-23'
+    "output_currencies": 'eur,usd,amd',
+    "amount": 123.45,
+    "date": '2022-08-24'
 }
 
 response = requests.get(url, params=data)

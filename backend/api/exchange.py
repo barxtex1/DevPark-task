@@ -41,7 +41,7 @@ def make_exchange(validated_data, *args, **kwargs):
     response = [
         {
             "currency": currency['code'],
-            "amount": round(currency['value']*float(amount), 2)
+            "amount": f"{currency['value']*float(amount):.2f}"
         } 
         for currency in result['data'].values()
     ]
